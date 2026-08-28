@@ -1,0 +1,194 @@
+/* Design system del dashboard (tema corredora navy/blue) */
+
+.atv-metrics-page {
+  --atv-accent: #f0c542;
+  --atv-accent-dark: #c9a233;
+  --atv-accent-gold: #f0c542;
+  --atv-text: #f5f2ec;
+  --atv-muted: rgba(245, 242, 236, 0.45);
+  --atv-subtle: #a8a49b;
+  --atv-border-soft: rgba(255, 255, 255, 0.08);
+  --atv-glass-bg: rgba(255, 255, 255, 0.02);
+  --atv-glass-border: rgba(255, 255, 255, 0.06);
+  --atv-glass-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --atv-font-sans:
+    'Poppins',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  --atv-font-serif: 'Anton', 'Poppins', sans-serif;
+
+  position: relative;
+  isolation: isolate;
+  min-height: 100%;
+  min-height: 100dvh;
+  min-height: 100svh;
+  overflow-x: hidden;
+  color: var(--atv-text);
+  font-family: var(--atv-font-sans);
+  background-color: #0b0c0f;
+  background-image: radial-gradient(
+    ellipse 95% 75% at 50% 38%,
+    rgba(23, 26, 32, 0.95) 0%,
+    rgba(11, 12, 15, 0.98) 48%,
+    #08090b 100%
+  );
+}
+
+.atv-metrics-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 115% 95% at 50% 45%,
+    transparent 35%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+.atv-page__glow {
+  position: fixed;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    rgba(240, 197, 66, 0.18) 0%,
+    transparent 72%
+  );
+  filter: blur(52px);
+}
+
+.atv-page__glow--metrics {
+  width: min(96vw, 72rem);
+  height: 36rem;
+}
+
+.atv-metrics-page--loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.atv-metrics-loading-logo {
+  position: relative;
+  z-index: 1;
+  width: clamp(5.5rem, 11vw, 7rem);
+  height: auto;
+  object-fit: contain;
+  opacity: 0.92;
+}
+
+.atv-metrics-spinner {
+  position: relative;
+  z-index: 1;
+  width: 1.35rem;
+  height: 1.35rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: var(--atv-accent);
+  border-radius: 50%;
+  animation: atv-spin 0.65s linear infinite;
+}
+
+@keyframes atv-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes atv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atv-metrics-spinner {
+    animation-duration: 1.2s;
+  }
+}
+
+.btn-primary {
+  border: 0;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  color: #0b0c0f;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f0c542 0%, #e0b02f 100%);
+  box-shadow:
+    0 4px 20px rgba(240, 197, 66, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition:
+    box-shadow 0.15s ease,
+    transform 0.1s ease,
+    opacity 0.15s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow:
+    0 6px 28px rgba(240, 197, 66, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid rgba(240, 197, 66, 0.65);
+  outline-offset: 3px;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  font-family: inherit;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.btn-secondary:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.25);
+  outline-offset: 3px;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

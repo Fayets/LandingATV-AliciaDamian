@@ -1,0 +1,70 @@
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  color: var(--cream-3);
+}
+
+.title {
+  margin: 0;
+  color: var(--cream);
+  font-family: 'Anton', 'Poppins', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.linkBtn {
+  border: 1px solid var(--hair-2);
+  background: transparent;
+  color: var(--cream-2);
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.linkBtn:hover {
+  background: var(--ink-4);
+  color: var(--cream);
+}
+
+.shell :global(.resources-panel) {
+  margin-top: 22px;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--hair-2);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.9);
+}

@@ -1,0 +1,175 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.panel {
+  width: min(1100px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--bg2);
+  border: 1px solid var(--line2);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.header h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  color: var(--white);
+  font-weight: 400;
+}
+
+.header p {
+  margin: 0.25rem 0 0;
+  color: var(--text2);
+}
+
+.closeBtn {
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1rem;
+}
+
+.list {
+  display: grid;
+  gap: 0.5rem;
+  align-content: start;
+}
+
+.listItem {
+  text-align: left;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--line2);
+  background: var(--bg3);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.listItemActive {
+  border-color: var(--blue);
+}
+
+.listItem code {
+  display: block;
+  font-size: 0.72rem;
+  margin-bottom: 0.35rem;
+  word-break: break-all;
+  color: var(--blue2);
+}
+
+.listItem span {
+  font-size: 0.72rem;
+  color: var(--text3);
+  text-transform: uppercase;
+}
+
+.editor {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.editor label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--text2);
+  font-size: 0.85rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 1px solid var(--line2);
+  background: var(--bg3);
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.sectionsHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text2);
+}
+
+.linkBtn,
+.saveBtn {
+  border: 0;
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font-family: var(--font-body);
+}
+
+.linkBtn {
+  background: transparent;
+  color: var(--blue2);
+}
+
+.sectionBlock {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: var(--bg3);
+  border: 1px solid var(--line);
+}
+
+.saveBtn {
+  justify-self: start;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
+}
+
+.saveBtn:hover {
+  background: var(--blue2);
+}
+
+.muted {
+  color: var(--text3);
+}
+
+.error {
+  color: var(--error);
+}
+
+.success {
+  color: #7dffb2;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

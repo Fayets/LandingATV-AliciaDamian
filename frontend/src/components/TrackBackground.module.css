@@ -1,0 +1,82 @@
+/* Fondo del hero — foto de corredora a contraluz.
+   z-index -1 lo deja detrás del contenido sin posicionar; el contenedor
+   (.page / .quizPage) crea el contexto de apilado que lo encierra. */
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('/hero-corredora.jpg');
+  /* Ampliada y desplazada a la derecha para que la corredora caiga en el
+     hueco de la izquierda, y no detrás del formulario. */
+  background-size: 170%;
+  background-position: 100% 30%;
+  filter: brightness(0.72) saturate(0.92) contrast(1.06);
+}
+
+/* Oscurecido en degradado: más denso arriba (titular) y abajo (métricas) */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    /* Denso arriba (titular) y abajo (métricas); transparente en la franja
+       donde se ve la silueta. */
+    linear-gradient(
+      180deg,
+      rgba(11, 12, 15, 0.93) 0%,
+      rgba(11, 12, 15, 0.6) 30%,
+      rgba(11, 12, 15, 0.58) 62%,
+      rgba(11, 12, 15, 0.95) 100%
+    ),
+    /* Calor de marca detrás de la corredora */
+    radial-gradient(ellipse 46% 34% at 22% 46%, rgba(240, 197, 66, 0.1), transparent 66%);
+}
+
+/* Grano: une la foto con el resto de la landing */
+.grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.13'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 92% 82% at 50% 46%, transparent 38%, rgba(6, 7, 9, 0.88) 100%);
+}
+
+@media (max-width: 640px) {
+  .photo {
+    /* En vertical el hero es larguísimo: la foto ocupa solo la franja
+       de arriba y se desvanece, con la corredora a la izquierda. */
+    background-image: url('/hero-corredora-movil.jpg');
+    background-size: cover;
+    background-position: 16% 28%;
+    height: 60%;
+    bottom: auto;
+    filter: brightness(0.66) saturate(0.92);
+    -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+    mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+  }
+
+  .scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(11, 12, 15, 0.9) 0%,
+        rgba(11, 12, 15, 0.62) 22%,
+        rgba(11, 12, 15, 0.7) 45%,
+        rgba(11, 12, 15, 0.95) 62%,
+        rgba(11, 12, 15, 0.97) 100%
+      );
+  }
+}

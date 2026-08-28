@@ -1,0 +1,176 @@
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  overflow: hidden;
+  padding: clamp(28px, 6vw, 60px) var(--gut) clamp(48px, 8vw, 90px);
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.innerWide {
+  max-width: min(960px, 100%);
+}
+
+/* Marca */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: clamp(24px, 4vw, 40px);
+  text-decoration: none;
+}
+
+.brand:hover { text-decoration: none; }
+
+.brandMark {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--ink-3);
+  border: 2px solid var(--sun);
+}
+
+.brandText { display: flex; flex-direction: column; line-height: 1.25; }
+.brandText b { font-size: 14px; font-weight: 600; color: var(--cream); }
+.brandText i { font-style: normal; font-size: 11px; color: var(--cream-3); }
+
+/* Tarjeta de acceso */
+.card {
+  padding: clamp(26px, 4vw, 40px);
+  border: 1px solid var(--hair-2);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.9);
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+
+.title {
+  margin-top: 12px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4.6vw, 42px);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.sub {
+  margin-top: 12px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--cream-2);
+}
+
+.form { margin-top: 26px; }
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+
+.input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--hair-2);
+  border-radius: var(--r);
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-mono);
+  font-size: 20px;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.input::placeholder { color: var(--cream-3); letter-spacing: 0.16em; }
+
+.input:focus {
+  border-color: var(--sun);
+  box-shadow: 0 0 0 3px var(--sun-dim);
+}
+
+.button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 17px 22px;
+  border: none;
+  border-radius: var(--r);
+  background: var(--sun);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  transition: transform 0.16s ease, background 0.16s ease;
+}
+
+.button:hover:not(:disabled) { background: var(--sun-2); transform: translateY(-2px); }
+.button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.error {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 90, 90, 0.28);
+  border-radius: var(--r-sm);
+  background: rgba(255, 90, 90, 0.08);
+  color: var(--error);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ── Entrega del PDF ─────────────────────────────────────────── */
+.delivery {
+  border: 1px solid var(--hair-2);
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
+  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+}
+
+.deliveryHead {
+  padding: clamp(24px, 3.5vw, 34px);
+  border-bottom: 1px solid var(--hair-2);
+}
+
+.diagLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+
+.deliveryTitle {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4.2vw, 38px);
+  line-height: 1.08;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.deliverySub {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--cream-2);
+}

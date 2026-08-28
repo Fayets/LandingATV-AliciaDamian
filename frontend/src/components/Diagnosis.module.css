@@ -1,0 +1,121 @@
+.card {
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.loadingBody {
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-height: 200px;
+  justify-content: center;
+}
+
+.spinner {
+  font-size: 28px;
+  color: var(--red-accent);
+  animation: spin 1s linear infinite;
+}
+
+.loadingText {
+  font-size: 15px;
+  color: var(--muted);
+  text-align: center;
+  min-height: 24px;
+}
+
+.resultBody {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  text-align: left;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  background: var(--surface2);
+  border: 0.5px solid var(--red-dim);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: 11px;
+  color: var(--red-accent);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.opening {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.45;
+  text-align: left;
+  width: 100%;
+}
+
+.bodyText {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.55;
+  text-align: left;
+  width: 100%;
+}
+
+.closing {
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.55;
+  text-align: left;
+  width: 100%;
+}
+
+.closing em {
+  color: var(--red-accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.cta {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  text-align: left;
+  width: 100%;
+}
+
+.footer {
+  padding: 14px 20px;
+  border-top: 0.5px solid var(--border);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nextBtn {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+
+.nextBtn:hover {
+  background: var(--red-bright);
+}

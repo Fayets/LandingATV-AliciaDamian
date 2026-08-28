@@ -1,0 +1,76 @@
+.viewer {
+  background: #f5f2ec;
+}
+
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 280px;
+  padding: 32px 24px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
+}
+
+.state p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--cream-2);
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(240, 197, 66, 0.18);
+  border-top-color: var(--sun);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.sheet {
+  max-height: min(78vh, 960px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #f5f2ec;
+  padding: clamp(16px, 3vw, 24px) 0;
+}
+
+.sheetHidden {
+  visibility: hidden;
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  pointer-events: none;
+}
+
+.pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.page {
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.page + .page {
+  border-top: 1px solid rgba(26, 26, 26, 0.07);
+}
+
+.pageCanvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  user-select: none;
+  -webkit-user-select: none;
+}

@@ -1,0 +1,95 @@
+:root {
+  /* ── Sistema "DORSAL" ───────────────────────────────────────────────
+     Asfalto + dorsal de carrera + cronómetro, sobre la identidad real
+     de Alicia Damián (crema · negro · amarillo mostaza).
+     Cambiá estos valores y cambia toda la identidad del funnel.        */
+  --ink: #0b0c0f;          /* asfalto */
+  --ink-2: #101217;        /* superficie */
+  --ink-3: #171a20;        /* superficie elevada */
+  --ink-4: #1f242c;        /* superficie hover */
+  --cream: #f5f2ec;        /* texto sobre oscuro / fondo de bandas claras */
+  --cream-2: #a8a49b;      /* texto secundario */
+  --cream-3: #6b6862;      /* texto terciario */
+  --sun: #f0c542;          /* acento de marca — CTA, highlights */
+  --sun-2: #ffda6b;
+  --sun-dim: rgba(240, 197, 66, 0.12);
+  --pulse: #ff4438;        /* urgencia — solo en dosis mínimas */
+  --pulse-dim: rgba(255, 68, 56, 0.12);
+  --wa: #25d366;
+  --error: #ff5a5a;
+
+  --hair: rgba(245, 242, 236, 0.08);
+  --hair-2: rgba(245, 242, 236, 0.16);
+
+  --font-display: 'Anton', 'Poppins', system-ui, sans-serif;
+  --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --r-sm: 8px;
+  --r: 14px;
+  --r-lg: 22px;
+  --shell: 1140px;
+  --gut: clamp(18px, 5vw, 40px);
+
+  /* ── Aliases legacy (dashboard / admin / login) ──────────────────── */
+  --bg: var(--ink);
+  --bg2: var(--ink-2);
+  --bg3: var(--ink-3);
+  --line: var(--hair);
+  --line2: var(--hair-2);
+  --text: var(--cream);
+  --text2: var(--cream-2);
+  --text3: var(--cream-3);
+  --blue: #3a7bd5;
+  --blue2: #5b9aea;
+  --gold: var(--sun);
+  --gold2: var(--sun-2);
+  --gold-soft: var(--sun-dim);
+  --white: #ffffff;
+  --radius: var(--r);
+  --pad: clamp(20px, 5vw, 56px);
+  --surface: var(--ink-2);
+  --surface2: var(--ink-3);
+  --border: var(--hair-2);
+  --muted: var(--cream-2);
+  --red: var(--sun);
+  --red-accent: var(--sun-2);
+  --red-dim: var(--sun-dim);
+  --red-bright: var(--sun-2);
+  --font: var(--font-body);
+  --font-serif: var(--font-body);
+  --font-metric: var(--font-mono);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.62;
+  min-height: 100vh;
+}
+
+button { cursor: pointer; font-family: var(--font-body); }
+input, textarea, select { font-family: var(--font-body); }
+a { color: var(--sun); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+::selection { background: var(--sun); color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

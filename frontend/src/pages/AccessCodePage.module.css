@@ -1,0 +1,213 @@
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: clamp(28px, 6vw, 64px) var(--gut);
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 15px;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  border-radius: 999px;
+  background: rgba(37, 211, 102, 0.08);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--wa);
+}
+
+.title {
+  margin-top: 20px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 46px);
+  line-height: 1.06;
+  text-transform: uppercase;
+  color: var(--cream);
+}
+
+.name {
+  display: block;
+  margin-bottom: 0.34em;
+}
+
+.title mark {
+  background: var(--sun);
+  color: var(--ink);
+  padding: 0.02em 0.12em;
+  border-radius: 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.sub {
+  margin: 18px auto 0;
+  max-width: 46ch;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--cream-2);
+}
+
+/* ── Dorsal ──────────────────────────────────────────────────── */
+.bib {
+  margin-top: 30px;
+  border-radius: var(--r-lg);
+  background: var(--cream);
+  color: var(--ink);
+  overflow: hidden;
+  box-shadow: 0 30px 70px -28px rgba(0, 0, 0, 0.9);
+}
+
+.bibTop {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px dashed rgba(11, 12, 15, 0.2);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(11, 12, 15, 0.55);
+}
+
+.bibNumber {
+  padding: clamp(18px, 4vw, 30px) 20px;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 9vw, 68px);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  word-break: break-all;
+}
+
+.bibPerf {
+  height: 12px;
+  background-image: radial-gradient(circle at 6px 6px, var(--ink) 0 3px, transparent 3px);
+  background-size: 18px 12px;
+  opacity: 0.18;
+}
+
+.bibBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px 16px;
+  border-top: 1px dashed rgba(11, 12, 15, 0.2);
+}
+
+.bibLabel {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(11, 12, 15, 0.55);
+}
+
+.copyBtn {
+  padding: 9px 16px;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+.copyBtn:hover { background: var(--ink); color: var(--cream); }
+
+/* ── WhatsApp ────────────────────────────────────────────────── */
+.waBtn {
+  margin-top: 22px;
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: var(--r);
+  background: var(--wa);
+  color: #06210f;
+  font-family: var(--font-display);
+  font-size: clamp(16px, 2.2vw, 19px);
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  box-shadow: 0 16px 40px -16px rgba(37, 211, 102, 0.7);
+  transition: transform 0.16s ease, filter 0.16s ease;
+}
+
+.waBtn:hover { transform: translateY(-2px); filter: brightness(1.06); text-decoration: none; }
+.waBtn i { font-size: 20px; }
+
+.redirect { margin-top: 20px; }
+
+.redirect p {
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cream-3);
+}
+
+.redirect b { font-family: var(--font-mono); color: var(--sun); }
+
+.redirectBar {
+  margin: 10px auto 0;
+  max-width: 220px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--ink-3);
+  overflow: hidden;
+}
+
+.redirectFill {
+  height: 100%;
+  background: var(--sun);
+  transition: width 1s linear;
+}
+
+.warning {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hair);
+  font-size: 12px;
+  color: var(--cream-3);
+}
+
+/* Aviso de configuración pendiente (solo visible sin VITE_WA_NUMBER) */
+.configWarning {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px dashed rgba(255, 68, 56, 0.4);
+  border-radius: var(--r-sm);
+  background: var(--pulse-dim);
+  font-size: 12.5px;
+  color: var(--cream-2);
+}
+
+.configWarning code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--sun);
+}
