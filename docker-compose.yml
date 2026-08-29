@@ -1,20 +1,22 @@
+# Mismo patrón que las demás instancias del VPS: los puertos y el nombre
+# salen del .env de la raíz, así conviven varias en el mismo servidor.
 services:
   backend:
     build: ./backend
-    container_name: quiz-funnel-backend
+    container_name: ${INSTANCE_NAME:-landing-alicia}-backend
     environment:
       PYTHONUNBUFFERED: "1"
     env_file:
       - ./backend/.env
     ports:
-      - "8005:8000"
+      - "${BACKEND_PORT:-8004}:8000"
     restart: unless-stopped
 
   frontend:
     build: ./frontend
-    container_name: quiz-funnel-frontend
+    container_name: ${INSTANCE_NAME:-landing-alicia}-frontend
     ports:
-      - "8085:80"
+      - "${FRONTEND_PORT:-3004}:80"
     depends_on:
       - backend
     restart: unless-stopped

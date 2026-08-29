@@ -1,4 +1,5 @@
 import { BRAND } from '../data/landingContent'
+import { getQuizAnswerLabel, QUIZ_STEPS } from '../data/landingQuiz'
 
 const WA_NUMBER = (import.meta.env.VITE_WA_NUMBER || BRAND.whatsappNumber || '').replace(/\D/g, '')
 const ZWSP = '\u200B'
@@ -97,6 +98,43 @@ function buildSituationLine(respuestas = {}) {
   return `${line}.`
 }
 
+/** Etiqueta corta de cada pregunta para el mensaje de WhatsApp. */
+const ETIQUETAS_QUIZ = {
+  step_1_nivel: 'Nivel',
+  step_2_objetivo: 'Objetivo',
+  step_3a_freno_categoria: 'Lo que más me frena',
+  step_3b_freno_especifico: 'En concreto',
+  step_4_acompanamiento: 'Qué quiero hacer con el diagnóstico',
+  step_5_inversion: 'Dispuesta a invertir',
+}
+
+/**
+ * Mensaje que envía LA CORREDORA al abrir el chat desde /acceso/clave.
+ * Va en primera persona y lleva las seis respuestas del cuestionario, para
+ * que el setter tenga el contexto completo nada más abrir WhatsApp.
+ */
+export function buildLeadIntroText(lead = {}, respuestas = {}) {
+  const nombre = field(lead?.name, '').split(' ')[0]
+  const code = field(lead?.access_code)
+  const coach = BRAND.firstName || 'Alicia'
+  const saludo = nombre ? `¡Hola ${coach}! Soy ${nombre}.` : `¡Hola ${coach}!`
+
+  const lineas = QUIZ_STEPS
+    .map((step) => {
+      const etiqueta = ETIQUETAS_QUIZ[step.id]
+      const valor = getQuizAnswerLabel(step.id, respuestas[step.id], respuestas)
+      return etiqueta && valor ? `• ${etiqueta}: ${valor}` : ''
+    })
+    .filter(Boolean)
+
+  // Por bloques, para que WhatsApp los separe con línea en blanco
+  return [
+    `${saludo}\nAcabo de terminar el diagnóstico y vengo a por el mío.`,
+    code ? `Mi clave: ${code}` : '',
+    lineas.length ? ['Esto es lo que respondí:', ...lineas].join('\n') : '',
+  ].filter(Boolean).join('\n\n')
+}
+
 export function buildWhatsappMessageText(lead, respuestas = {}) {
   const nombre = field(lead?.name, 'ahí').split(' ')[0]
   const code = field(lead?.access_code)
@@ -122,7 +160,7 @@ export function buildWhatsappMessage(lead, respuestas = {}) {
 
 export function buildWhatsappUrl(data = {}) {
   const respuestas = { ...data, ...(data.quiz_answers || {}) }
-  const msg = buildWhatsappMessage(data, respuestas)
+  const msg = encodeURIComponent(buildLeadIntroText(data, respuestas))
   return `https://wa.me/${WA_NUMBER}?text=${msg}`
 }
 
