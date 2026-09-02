@@ -1,3 +1,7 @@
+# El .env NO debe viajar dentro de la imagen: las variables entran en
+# ejecución por env_file. Si se copia, la imagen lleva dentro la
+# contraseña de la base y el token de Meta.
+.env
 __pycache__
 *.pyc
 .pytest_cache
