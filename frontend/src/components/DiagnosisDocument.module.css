@@ -74,3 +74,14 @@
   user-select: none;
   -webkit-user-select: none;
 }
+
+/* En móvil, una caja con scroll propio dentro de la página se siente rota:
+   el dedo no sabe qué está desplazando y el pellizco para ampliar pelea con
+   el contenedor. Dejamos que el documento fluya con la página. */
+@media (max-width: 640px) {
+  .sheet {
+    max-height: none;
+    overflow: visible;
+    padding: 12px 0;
+  }
+}
