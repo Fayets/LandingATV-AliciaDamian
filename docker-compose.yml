@@ -9,7 +9,10 @@ services:
       POSTGRES_USER: ${POSTGRES_USER:-landing}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?falta POSTGRES_PASSWORD en el .env de la raíz}
     volumes:
-      - pgdata:/var/lib/postgresql/data
+      # postgres:18 exige el montaje en /var/lib/postgresql (guarda los datos
+      # en un subdirectorio por versión). La ruta antigua /data hace que el
+      # contenedor se niegue a arrancar.
+      - pgdata:/var/lib/postgresql
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-landing} -d ${POSTGRES_DB:-landing}"]
       interval: 10s
