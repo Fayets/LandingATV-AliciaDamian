@@ -28,7 +28,16 @@
   z-index: 40;
   background: #0b0c0f;
   border-bottom: 1px solid var(--hair);
+  /* El contenido va en nowrap, asi que tiene un ancho minimo rigido. Si las
+     metricas de la fuente cambian (Safari mide distinto que Chrome, o la mono
+     aun no ha cargado) ese minimo puede superar el ancho de la pantalla y
+     estirar la pagina entera: el titular y el formulario aparecen cortados.
+     Recortando aqui dentro, el desajuste se queda en la franja. */
+  overflow: hidden;
 }
+
+/* Sin esto los hijos flex se niegan a bajar de su ancho de contenido. */
+.urgencyInner > * { min-width: 0; }
 
 .urgencyInner {
   width: 100%;
@@ -161,10 +170,17 @@
   margin: 0 auto;
   padding: 0 var(--gut);
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  /* minmax(0, ...) en lugar de 1fr a secas: un `fr` es minmax(auto, 1fr) y ese
+     `auto` se niega a bajar del ancho minimo del contenido, asi que un solo
+     hijo rigido ensancha la columna por encima del contenedor y el hero se
+     sale por la derecha. */
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: clamp(20px, 2.6vw, 40px);
   align-items: start;
 }
+
+/* Y los hijos tampoco pueden negarse a encoger dentro de su columna. */
+.heroGrid > * { min-width: 0; }
 
 /* Fila 1: el titular ocupa el ancho completo y va centrado */
 .heroHead {
@@ -843,7 +859,7 @@
    RESPONSIVE
    ═══════════════════════════════════════════════════════════════ */
 @media (max-width: 980px) {
-  .heroGrid { grid-template-columns: 1fr; }
+  .heroGrid { grid-template-columns: minmax(0, 1fr); }
   .sheets { grid-template-columns: 1fr; gap: 30px; }
   .sheetFigure img { aspect-ratio: 88 / 62; }
   .formCard { position: static; }
@@ -855,7 +871,6 @@
   /* El banner es pegajoso: en móvil solo cabe el avatar */
   .brandText { display: none; }
   .brandMark { width: 26px; height: 26px; }
-  .urgencyInner { gap: 8px; padding: 8px 12px; font-size: 10px; }
   .urgShort, .urgencyRight { white-space: nowrap; }
   .urgencyMid { gap: 8px; }
   .urgencyLeft { gap: 6px; }
@@ -877,12 +892,18 @@
   .previews { order: 2; min-width: 0; }
   .formCard { order: 3; }
   .statRow { order: 4; margin-top: 22px; }
-  .urgencyInner { padding: 8px var(--gut); }
-  .urgencyInner { gap: 10px; font-size: 10.5px; }
+  .urgencyInner { padding: 8px 12px; gap: 8px; font-size: 10.5px; }
   .statRow { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .statRow b { font-size: 17px; }
   .statRow span { font-size: 10px; }
   .toast { left: 12px; right: 12px; bottom: 84px; }
   .headline { font-size: clamp(32px, 9vw, 44px); }
   .sub { font-size: 14.5px; }
+}
+
+/* Por debajo de 380px ni apretando cabe el rotulo junto al reloj y las plazas.
+   Se cae la etiqueta, que es lo unico redundante: el punto rojo y el propio
+   cronometro ya comunican la urgencia. */
+@media (max-width: 380px) {
+  .urgShort { display: none; }
 }
