@@ -492,7 +492,7 @@ export default function LandingPage({ onComplete }) {
               <PhoneInput
                 value={form.phone}
                 onChange={(phone) => setForm((prev) => ({ ...prev, phone }))}
-                placeholder="Tu número de WhatsApp"
+                placeholder="Tu WhatsApp"
               />
               <input
                 className={styles.input}

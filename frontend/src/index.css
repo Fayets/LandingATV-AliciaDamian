@@ -93,3 +93,22 @@ a:hover { text-decoration: underline; }
     scroll-behavior: auto !important;
   }
 }
+
+/* iOS Safari hace zoom automatico al enfocar un campo con letra < 16px, y no
+   lo deshace al salir: la pagina queda desplazada y recortada. Como el viewport
+   ya no bloquea el zoom (se quito maximum-scale para poder ampliar con dos
+   dedos), los campos tienen que llegar a 16px en movil. El selector lleva
+   atributo a proposito: asi gana a las clases de los CSS Modules. */
+@media (max-width: 767px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  input[type="password"],
+  input[type="search"],
+  input:not([type]),
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}

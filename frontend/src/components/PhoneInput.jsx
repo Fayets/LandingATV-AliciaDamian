@@ -8,7 +8,7 @@ import {
 } from '../data/phoneCountries'
 import styles from './PhoneInput.module.css'
 
-export default function PhoneInput({ value, onChange, placeholder = 'Tu número de WhatsApp' }) {
+export default function PhoneInput({ value, onChange, placeholder = 'Tu WhatsApp' }) {
   const parsed = parsePhoneValue(value)
   const [country, setCountry] = useState(parsed.country)
   const [local, setLocal] = useState(parsed.local)
