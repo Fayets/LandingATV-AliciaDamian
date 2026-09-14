@@ -5,6 +5,20 @@
     <!-- Sin maximum-scale: bloquear el zoom impide leer el PDF del diagnóstico
          en el móvil, y es una barrera de accesibilidad. -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      // Safari de iOS guarda el zoom de cada pestaña y lo restaura al volver a
+      // abrirla: si la página quedó ampliada una vez, se ve recortada para
+      // siempre. Alternar maximum-scale al cargar obliga a Safari a devolverla
+      // al 100 %, y se restaura en cuanto termina para no bloquear el pinch
+      // zoom, que hace falta para leer el PDF del diagnóstico.
+      (function () {
+        var vp = document.querySelector('meta[name=viewport]')
+        if (!vp) return
+        var libre = vp.content
+        vp.content = libre + ', maximum-scale=1'
+        setTimeout(function () { vp.content = libre }, 400)
+      })()
+    </script>
     <title>Diagnóstico para corredoras</title>
     <meta
       name="description"
