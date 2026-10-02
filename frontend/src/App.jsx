@@ -1,11 +1,17 @@
-import { useEffect, useState } from 'react'
-import DashboardPage from './pages/DashboardPage'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import LandingPage from './pages/LandingPage'
 import AccessCodePage from './pages/AccessCodePage'
-import ResourcePage from './pages/ResourcePage'
-import LoginPage from './pages/LoginPage'
-import AdminPage from './pages/AdminPage'
 import ProtectedRoute from './components/ProtectedRoute'
+
+/* La landing y su pantalla de clave van en el paquete principal porque son
+   la entrada del lead. El resto se carga solo cuando se visita: el visor de
+   /recurso arrastra pdfjs, y el panel y el admin son pantallas internas que
+   ningun visitante abre. Juntos eran 134 de los 177 KiB que se descargaba
+   quien entraba a /acceso sin llegar a usarlos nunca. */
+const ResourcePage = lazy(() => import('./pages/ResourcePage'))
+const LoginPage = lazy(() => import('./pages/LoginPage'))
+const DashboardPage = lazy(() => import('./pages/DashboardPage'))
+const AdminPage = lazy(() => import('./pages/AdminPage'))
 import { esCalificado } from './utils/calificacion'
 import {
   isValidLead,
@@ -17,6 +23,16 @@ import { PAGE_TITLES } from './config/app'
 function normalizePath(pathname) {
   if (!pathname || pathname === '/') return '/'
   return pathname.replace(/\/+$/, '') || '/'
+}
+
+/** Envoltorio de las vistas que se cargan bajo demanda. El hueco va del
+    color del fondo para que no haya un parpadeo blanco mientras llega. */
+function Diferida({ children }) {
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', background: 'var(--ink)' }} />}>
+      {children}
+    </Suspense>
+  )
 }
 
 export default function App() {
@@ -73,23 +89,27 @@ export default function App() {
     return <LandingPage onComplete={handleComplete} />
   }
   if (path === '/recurso') {
-    return <ResourcePage />
+    return <Diferida><ResourcePage /></Diferida>
   }
   if (path === '/login') {
-    return <LoginPage />
+    return <Diferida><LoginPage /></Diferida>
   }
   if (path === '/dashboard') {
     return (
-      <ProtectedRoute>
-        <DashboardPage />
-      </ProtectedRoute>
+      <Diferida>
+        <ProtectedRoute>
+          <DashboardPage />
+        </ProtectedRoute>
+      </Diferida>
     )
   }
   if (path === '/admin') {
     return (
-      <ProtectedRoute>
-        <AdminPage />
-      </ProtectedRoute>
+      <Diferida>
+        <ProtectedRoute>
+          <AdminPage />
+        </ProtectedRoute>
+      </Diferida>
     )
   }
 
