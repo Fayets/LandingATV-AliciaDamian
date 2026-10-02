@@ -52,11 +52,19 @@ if (META_PIXEL_ID && typeof window !== 'undefined') {
     window.addEventListener(ev, alInteractuar, { once: true, passive: true }),
   )
 
-  if ('requestIdleCallback' in window) {
-    window.requestIdleCallback(traerPixel, { timeout: 3000 })
-  } else {
-    setTimeout(traerPixel, 2500)
+  /* Sin interaccion ninguna, se trae igualmente cuando la pagina ya ha
+     terminado de cargar y el navegador tiene un hueco. El margen es amplio a
+     proposito: quien se queda en la pagina casi siempre se desplaza o toca
+     algo antes, y asi el script no compite con el primer pintado. */
+  const porSuCuenta = () => {
+    if ('requestIdleCallback' in window) {
+      window.requestIdleCallback(traerPixel, { timeout: 5000 })
+    } else {
+      setTimeout(traerPixel, 5000)
+    }
   }
+  if (document.readyState === 'complete') porSuCuenta()
+  else window.addEventListener('load', porSuCuenta, { once: true })
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -42,7 +42,14 @@
     <!-- La silueta es el elemento mas grande del hero y la pinta React, asi
          que el navegador no la descubre hasta ejecutar el JS. Precargarla
          adelanta su descarga al primer vistazo del HTML. -->
-    <link rel="preload" as="image" href="/corredora-recorte.webp" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="/corredora-recorte.webp"
+      imagesrcset="/corredora-recorte-240.webp 240w, /corredora-recorte-340.webp 340w, /corredora-recorte.webp 457w"
+      imagesizes="(max-width: 640px) 185px, 22vw"
+      fetchpriority="high"
+    />
 
   </head>
   <body>

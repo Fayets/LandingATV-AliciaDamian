@@ -56,6 +56,12 @@ function Countdown({ value }) {
   )
 }
 
+/** Los tres anchos de una captura, a partir de su ruta base. */
+function anchosDe(ruta) {
+  const base = ruta.replace(/\.webp$/, '')
+  return `${base}-200.webp 200w, ${base}-300.webp 300w, ${ruta} 420w`
+}
+
 export default function LandingPage({ onComplete }) {
   const [phase, setPhase] = useState('optin')
   const [current, setCurrent] = useState(0)
@@ -441,6 +447,8 @@ export default function LandingPage({ onComplete }) {
               <img
                 className={styles.runner}
                 src="/corredora-recorte.webp"
+                srcSet="/corredora-recorte-240.webp 240w, /corredora-recorte-340.webp 340w, /corredora-recorte.webp 457w"
+                sizes="(max-width: 640px) 185px, 22vw"
                 alt=""
                 aria-hidden="true"
                 width="457"
@@ -456,6 +464,8 @@ export default function LandingPage({ onComplete }) {
                   <li key={page.title} className={styles[`fan${i}`]}>
                     <img
                       src={page.image}
+                      srcSet={anchosDe(page.image)}
+                      sizes={i === 1 ? '(max-width: 640px) 42vw, 20vw' : '(max-width: 640px) 37vw, 16vw'}
                       alt={page.title}
                       loading={i === 1 ? 'eager' : 'lazy'}
                       width="420"

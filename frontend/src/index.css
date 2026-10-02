@@ -46,6 +46,34 @@
   src: url('/fonts/poppins-700.woff2') format('woff2');
 }
 
+/* El titular es la causa del salto de maquetacion: Anton es mucho mas
+   estrecha que cualquier fuente del sistema, asi que mientras no llega el
+   titular ocupa mas lineas y al llegar se recompone, moviendo todo lo que
+   tiene debajo.
+
+   Estos dos respaldos no se descargan: usan fuentes que ya estan en el
+   equipo y con size-adjust se les da el ancho de Anton, de modo que el texto
+   cae en las mismas lineas antes y despues. Hacen falta dos porque el ajuste
+   depende de que fuente encuentre: en un Mac hay Arial Narrow (de por si
+   estrecha) y en Android o Linux se acaba en Roboto o Liberation, mucho mas
+   anchas. Medido a 64px sobre el titular real: Anton 1286 px, Arial Narrow
+   1528 (de ahi el 84%) y Arial 1863 (de ahi el 70%). */
+@font-face {
+  font-family: 'Anton Repuesto Estrecha';
+  src: local('Arial Narrow'), local('Roboto Condensed'), local('Liberation Sans Narrow');
+  size-adjust: 84%;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Anton Repuesto Ancha';
+  src: local('Arial'), local('Roboto'), local('Liberation Sans'), local('Helvetica');
+  size-adjust: 70%;
+  font-weight: 400;
+  font-style: normal;
+}
+
 /* JetBrains Mono es variable: un solo archivo cubre todos los grosores. */
 @font-face {
   font-family: 'JetBrains Mono';
@@ -84,7 +112,7 @@
   --sombra: 0 14px 30px rgba(40, 80, 130, 0.16);
   --sombra-lg: 0 24px 60px rgba(60, 100, 150, 0.14);
 
-  --font-display: 'Anton', 'Poppins', system-ui, sans-serif;
+  --font-display: 'Anton', 'Anton Repuesto Estrecha', 'Anton Repuesto Ancha', 'Poppins', system-ui, sans-serif;
   --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
 
