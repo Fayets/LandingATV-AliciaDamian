@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import styles from './Diagnosis.module.css'
+import Icono from './Icono'
 
 const LOADING_MESSAGES = [
   'Analizando tus respuestas...',
@@ -90,7 +91,7 @@ export default function Diagnosis({ answers, onContinue }) {
     <div className={styles.card}>
       {phase === 'loading' ? (
         <div className={styles.loadingBody}>
-          <i className={`ti ti-loader-2 ${styles.spinner}`} />
+          <Icono nombre="loader" className={styles.spinner} />
           <p className={styles.loadingText}>{LOADING_MESSAGES[messageIndex]}</p>
         </div>
       ) : (
@@ -110,7 +111,7 @@ export default function Diagnosis({ answers, onContinue }) {
           <div className={styles.footer}>
             <button type="button" className={styles.nextBtn} onClick={handleContinue}>
               Continuar
-              <i className="ti ti-arrow-right" />
+              <Icono nombre="arrow-right" />
             </button>
           </div>
         </>

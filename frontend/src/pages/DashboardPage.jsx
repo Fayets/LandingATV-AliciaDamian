@@ -14,6 +14,7 @@ import { downloadAdminLeadsCsv } from '../utils/exportAdminCsv'
 import ResourcesPanel from '../components/ResourcesPanel'
 import '../styles/atv-dashboard.css'
 import styles from './DashboardPage.module.css'
+import Icono from '../components/Icono'
 
 const LOGO_FILE = import.meta.env.VITE_LOGO_FILE || 'logo.svg'
 const LOGO_SRC = `${import.meta.env.BASE_URL}${LOGO_FILE}`
@@ -584,7 +585,7 @@ export default function DashboardPage() {
             className={styles.btnAnalytics}
             onClick={() => setShowResources(true)}
           >
-            <i className="ti ti-file-text" />
+            <Icono nombre="file-text" />
             Recursos
           </button>
           <button
@@ -592,7 +593,7 @@ export default function DashboardPage() {
             className={styles.btnAnalytics}
             onClick={() => setShowAnalytics(true)}
           >
-            <i className="ti ti-chart-bar" />
+            <Icono nombre="chart-bar" />
             Ver análisis
           </button>
           <button
@@ -614,28 +615,28 @@ export default function DashboardPage() {
           <div className={styles.metricCard}>
             <div className={styles.metricHead}>
               <span className={styles.metricLabel}>Total leads</span>
-              <i className="ti ti-users" />
+              <Icono nombre="users" />
             </div>
             <div className={styles.metricNum}>{metrics.total}</div>
           </div>
           <div className={`${styles.metricCard} ${styles.metricHighlight}`}>
             <div className={styles.metricHead}>
               <span className={styles.metricLabel}>Pendientes</span>
-              <i className="ti ti-clock" />
+              <Icono nombre="clock" />
             </div>
             <div className={`${styles.metricNum} ${styles.metricNumRed}`}>{metrics.pendientes}</div>
           </div>
           <div className={styles.metricCard}>
             <div className={styles.metricHead}>
               <span className={styles.metricLabel}>Contactados</span>
-              <i className="ti ti-check" />
+              <Icono nombre="check" />
             </div>
             <div className={styles.metricNum}>{metrics.contactados}</div>
           </div>
           <div className={styles.metricCard}>
             <div className={styles.metricHead}>
               <span className={styles.metricLabel}>Agendados</span>
-              <i className="ti ti-calendar" />
+              <Icono nombre="calendar" />
             </div>
             <div className={styles.metricNum}>{metrics.agendados}</div>
           </div>
@@ -645,7 +646,7 @@ export default function DashboardPage() {
           <div className={styles.toolbarTop}>
             <div className={styles.toolbarCol}>
               <label className={styles.searchWrap}>
-                <i className="ti ti-search" />
+                <Icono nombre="search" />
                 <input
                   type="search"
                   className={styles.searchInput}
@@ -703,7 +704,7 @@ export default function DashboardPage() {
               onClick={handleExport}
               disabled={filteredLeads.length === 0}
             >
-              <i className="ti ti-download" />
+              <Icono nombre="download" />
               Exportar CSV
             </button>
             {!deleteAllConfirming ? (
@@ -716,7 +717,7 @@ export default function DashboardPage() {
                 }}
                 disabled={leads.length === 0}
               >
-                <i className="ti ti-trash" />
+                <Icono nombre="trash" />
                 Eliminar todos
               </button>
             ) : (
@@ -801,7 +802,7 @@ export default function DashboardPage() {
                       <td className={styles.cellMuted}>{formatDateShort(lead.created_at)}</td>
                       <td>
                         <button type="button" className={styles.rowAction} onClick={(e) => { e.stopPropagation(); openPanel(lead) }}>
-                          <i className="ti ti-chevron-right" />
+                          <Icono nombre="chevron-right" />
                         </button>
                       </td>
                     </tr>
@@ -822,7 +823,7 @@ export default function DashboardPage() {
                   onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
                   disabled={currentPage <= 1}
                 >
-                  <i className="ti ti-chevron-left" />
+                  <Icono nombre="chevron-left" />
                   Anterior
                 </button>
                 <span className={styles.paginationPage}>
@@ -835,7 +836,7 @@ export default function DashboardPage() {
                   disabled={currentPage >= totalPages}
                 >
                   Siguiente
-                  <i className="ti ti-chevron-right" />
+                  <Icono nombre="chevron-right" />
                 </button>
               </div>
             </footer>
@@ -860,7 +861,7 @@ export default function DashboardPage() {
                 onClick={() => setShowAnalytics(false)}
                 aria-label="Cerrar"
               >
-                <i className="ti ti-x" />
+                <Icono nombre="x" />
               </button>
             </header>
             <div className={styles.analyticsBody}>
@@ -898,7 +899,7 @@ export default function DashboardPage() {
                 <p className={styles.panelDate}>{formatDateFull(selectedLead.created_at)}</p>
               </div>
               <button type="button" className={styles.panelClose} onClick={closePanel} aria-label="Cerrar">
-                <i className="ti ti-x" />
+                <Icono nombre="x" />
               </button>
             </header>
 
@@ -907,11 +908,11 @@ export default function DashboardPage() {
               <h3 className={styles.panelSectionTitle}>Contacto</h3>
               <div className={styles.panelContactList}>
               <a href={`mailto:${selectedLead.email}`} className={styles.panelContactItem}>
-                <i className="ti ti-mail" />
+                <Icono nombre="mail" />
                 <span>{selectedLead.email}</span>
               </a>
               <a href={buildLeadWhatsappUrl(selectedLead)} target="_blank" rel="noopener noreferrer" className={styles.panelContactItem}>
-                <i className="ti ti-brand-whatsapp" />
+                <Icono nombre="brand-whatsapp" />
                 <span>{selectedLead.phone}</span>
               </a>
               {selectedLead.ig && (
@@ -921,7 +922,7 @@ export default function DashboardPage() {
                   rel="noopener noreferrer"
                   className={styles.panelContactItem}
                 >
-                  <i className="ti ti-brand-instagram" />
+                  <Icono nombre="brand-instagram" />
                   <span>{selectedLead.ig.startsWith('@') ? selectedLead.ig : `@${selectedLead.ig}`}</span>
                 </a>
               )}
@@ -945,7 +946,7 @@ export default function DashboardPage() {
                     onClick={() => setRegenConfirming(true)}
                     disabled={regenLoading || regenConfirming}
                   >
-                    <i className="ti ti-refresh" aria-hidden="true" />
+                    <Icono nombre="refresh" aria-hidden="true" />
                     Regenerar
                   </button>
                 </div>
@@ -1033,7 +1034,7 @@ export default function DashboardPage() {
                   onClick={() => setDeleteConfirming(true)}
                   disabled={deleteLoading}
                 >
-                  <i className="ti ti-trash" />
+                  <Icono nombre="trash" />
                   Eliminar registro
                 </button>
               ) : (

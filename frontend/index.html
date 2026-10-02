@@ -33,28 +33,17 @@
     />
     <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon-running.svg" />
     <link rel="apple-touch-icon" href="%BASE_URL%favicon-running.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Las tipografias se sirven desde este mismo dominio (ver @font-face en
+         index.css). Se precargan las tres caras de la primera pantalla para
+         que el texto se pinte ya con ellas y no haya cambio de fuente. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/anton-400.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-400.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/poppins-600.woff2" crossorigin />
     <!-- La silueta es el elemento mas grande del hero y la pinta React, asi
          que el navegador no la descubre hasta ejecutar el JS. Precargarla
          adelanta su descarga al primer vistazo del HTML. -->
     <link rel="preload" as="image" href="/corredora-recorte.webp" fetchpriority="high" />
 
-    <!-- Los iconos bloqueaban el pintado 2,1 s desde un CDN externo. Con
-         media="print" el navegador los baja sin bloquear y onload los activa. -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css" />
-    </noscript>
   </head>
   <body>
     <div id="root"></div>

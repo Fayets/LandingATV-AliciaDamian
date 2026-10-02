@@ -12,6 +12,7 @@ import {
   REVENUE_OPTIONS,
 } from '../data/landingQuiz'
 import { esCalificado } from '../utils/calificacion'
+import Icono from './Icono'
 
 const STEPS = [
   {
@@ -158,7 +159,7 @@ export default function Quiz({ onComplete }) {
                 onClick={() => handleOption(opt)}
               >
                 <span>{opt}</span>
-                <i className="ti ti-arrow-right" />
+                <Icono nombre="arrow-right" />
               </button>
             ))}
           </div>
@@ -253,7 +254,7 @@ export default function Quiz({ onComplete }) {
           onClick={() => setCurrent((c) => c - 1)}
           disabled={current === 0}
         >
-          <i className="ti ti-arrow-left" /> Atrás
+          <Icono nombre="arrow-left" /> Atrás
         </button>
 
         <div className={styles.dots}>
@@ -271,11 +272,11 @@ export default function Quiz({ onComplete }) {
           disabled={!canNext || loading}
         >
           {loading ? (
-            <i className="ti ti-loader-2" style={{ animation: 'spin 1s linear infinite' }} />
+            <Icono nombre="loader" style={{ animation: 'spin 1s linear infinite' }} />
           ) : isLast ? (
-            <><span>Quiero mi diagnóstico</span><i className="ti ti-arrow-right" /></>
+            <><span>Quiero mi diagnóstico</span><Icono nombre="arrow-right" /></>
           ) : (
-            <i className="ti ti-arrow-right" />
+            <Icono nombre="arrow-right" />
           )}
         </button>
       </div>

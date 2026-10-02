@@ -59,7 +59,7 @@
   font-size: 0.8125rem;
 }
 
-.btnAnalytics i {
+.btnAnalytics i, .btnAnalytics svg {
   font-size: 16px;
 }
 
@@ -145,7 +145,7 @@
   margin-bottom: 10px;
 }
 
-.metricHead i {
+.metricHead i, .metricHead svg {
   font-size: 15px;
   color: var(--atv-muted, var(--cream-3));
 }
@@ -563,7 +563,7 @@
   background-color: var(--ink-2);
 }
 
-.searchWrap i {
+.searchWrap i, .searchWrap svg {
   color: var(--atv-muted, var(--cream-3));
   font-size: 15px;
 }
@@ -799,7 +799,7 @@
   white-space: nowrap;
 }
 
-.waLink i {
+.waLink i, .waLink svg {
   color: #6ee7a0;
   font-size: 14px;
 }
@@ -813,7 +813,7 @@
   white-space: nowrap;
 }
 
-.igLink i {
+.igLink i, .igLink svg {
   color: #f0abfc;
   font-size: 14px;
 }
@@ -1122,7 +1122,7 @@
   border-color: var(--hair-2);
 }
 
-.panelContactItem i {
+.panelContactItem i, .panelContactItem svg {
   flex-shrink: 0;
   font-size: 1rem;
   color: var(--atv-muted, var(--cream-3));

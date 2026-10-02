@@ -1,5 +1,6 @@
 import styles from './ThankYouPage.module.css'
 import { buildWhatsappUrl } from '../utils/buildWhatsappMessage'
+import Icono from '../components/Icono'
 
 const LOGO_FILE = import.meta.env.VITE_LOGO_FILE || 'logo.svg'
 
@@ -20,7 +21,7 @@ export default function ThankYouPage({ data }) {
 
       <div className={styles.center}>
         <div className={styles.iconWrap}>
-          <i className="ti ti-check" />
+          <Icono nombre="check" />
         </div>
         <h1 className={styles.title}>[Tu mensaje de confirmación aquí]</h1>
         <p className={styles.sub}>
@@ -28,7 +29,7 @@ export default function ThankYouPage({ data }) {
         </p>
 
         <a href={waUrl} target="_blank" rel="noopener noreferrer" className={styles.waBtn}>
-          <i className="ti ti-brand-whatsapp" />
+          <Icono nombre="brand-whatsapp" />
           [CTA WhatsApp]
         </a>
 

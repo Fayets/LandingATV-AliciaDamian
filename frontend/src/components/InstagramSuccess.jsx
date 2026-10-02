@@ -1,6 +1,7 @@
 import { INSTAGRAM_PROFILE, INSTAGRAM_SUCCESS_CASES } from '../data/instagramSuccessCases'
 import SuccessCaseCard from './SuccessCaseCard'
 import styles from './InstagramSuccess.module.css'
+import Icono from './Icono'
 
 export default function InstagramSuccess() {
   return (
@@ -22,7 +23,7 @@ export default function InstagramSuccess() {
           rel="noopener noreferrer"
           className={styles.followBtn}
         >
-          <i className="ti ti-brand-instagram" />
+          <Icono nombre="brand-instagram" />
           Ver todos los casos en @{INSTAGRAM_PROFILE.username}
         </a>
       </div>

@@ -59,7 +59,7 @@
 
 .sub {
   font-size: 18px;
-  font-weight: 300;
+  font-weight: 400;
   color: var(--muted);
   line-height: 1.65;
   margin-bottom: 36px;
@@ -81,7 +81,7 @@
   margin-bottom: 18px;
 }
 .waBtn:hover { background: #1ebe5a; text-decoration: none; }
-.waBtn i { font-size: 24px; }
+.waBtn i, .waBtn svg { font-size: 24px; }
 
 .disclaimer {
   font-size: 14px;

@@ -1,3 +1,60 @@
+/* ── Tipografias servidas desde el propio dominio ───────────────────────
+   Google Fonts eran 1,9 de los 1,94 s de ruta critica: el navegador pedia
+   el CSS a fonts.googleapis.com y solo entonces descubria los woff2 en
+   fonts.gstatic.com, dos saltos de red encadenados antes de pintar texto.
+   Sirviendolas aqui desaparecen los dos, y al precargarlas en el HTML no
+   da tiempo a que se vea la fuente de respaldo (de ahi que el salto de
+   maquetacion se quede en cero).
+   Solo el subconjunto latin, que es el que necesita el castellano.        */
+@font-face {
+  font-family: 'Anton';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/anton-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/poppins-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+}
+
+/* JetBrains Mono es variable: un solo archivo cubre todos los grosores. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('/fonts/jetbrains-mono-var.woff2') format('woff2-variations');
+}
+
 :root {
   /* ── Sistema "DORSAL CLARO" ─────────────────────────────────────────
      Hielo + azul de marca + negro de dorsal. Los nombres de los tokens

@@ -458,8 +458,8 @@ export default function LandingPage({ onComplete }) {
                       src={page.image}
                       alt={page.title}
                       loading={i === 1 ? 'eager' : 'lazy'}
-                      width="600"
-                      height="849"
+                      width="420"
+                      height="594"
                     />
                   </li>
                 ))}

@@ -26,8 +26,7 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.86);
   border-bottom: 1px solid var(--hair);
   /* El contenido va en nowrap, asi que tiene un ancho minimo rigido. Si las
      metricas de la fuente cambian (Safari mide distinto que Chrome, o la mono
@@ -616,8 +615,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 12px var(--gut) calc(12px + env(safe-area-inset-bottom));
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.96);
   border-top: 1px solid var(--hair-2);
   transform: translateY(110%);
   transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
@@ -696,8 +694,7 @@
   position: sticky;
   top: 0;
   z-index: 30;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.86);
   border-bottom: 1px solid var(--hair);
 }
 
@@ -844,8 +841,7 @@
   justify-content: space-between;
   gap: 12px;
   padding: 14px var(--gut) calc(14px + env(safe-area-inset-bottom));
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.96);
   border-top: 1px solid var(--hair);
 }
 

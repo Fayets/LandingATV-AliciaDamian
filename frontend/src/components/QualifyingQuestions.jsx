@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styles from './QualifyingQuestions.module.css'
+import Icono from './Icono'
 
 const QUALIFYING_FIELDS = [
   { id: 'agendas', label: '¿Cuántas agendas generás por mes?' },
@@ -62,7 +63,7 @@ export default function QualifyingQuestions({ onComplete }) {
           disabled={!canSubmit}
         >
           <span>Quiero mi diagnóstico</span>
-          <i className="ti ti-arrow-right" />
+          <Icono nombre="arrow-right" />
         </button>
       </div>
     </div>

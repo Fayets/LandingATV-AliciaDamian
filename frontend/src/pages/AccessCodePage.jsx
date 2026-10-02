@@ -3,6 +3,7 @@ import { buildWhatsappUrl, hasWhatsappNumber } from '../utils/buildWhatsappMessa
 import { ACCESS_COPY, BRAND } from '../data/landingContent'
 import TrackBackground from '../components/TrackBackground'
 import styles from './AccessCodePage.module.css'
+import Icono from '../components/Icono'
 
 const COUNTDOWN_SECONDS = 10
 
@@ -64,7 +65,7 @@ export default function AccessCodePage({ data }) {
         </div>
 
         <a href={waUrl} className={styles.waBtn}>
-          <i className="ti ti-brand-whatsapp" aria-hidden="true" />
+          <Icono nombre="brand-whatsapp" aria-hidden="true" />
           {ACCESS_COPY.waBtn}
         </a>
 

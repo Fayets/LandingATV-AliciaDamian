@@ -58,7 +58,7 @@
   width: 100%;
 }
 
-.opt i { font-size: 16px; color: var(--muted); transition: color 0.15s; }
+.opt i, .opt svg { font-size: 16px; color: var(--muted); transition: color 0.15s; }
 .opt:hover { background: var(--surface2); border-color: var(--red-dim); }
 .opt:hover i { color: var(--red-bright); }
 .opt.selected { background: var(--red-dim); border-color: var(--red); }
