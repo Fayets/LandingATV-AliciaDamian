@@ -52,17 +52,12 @@ if (META_PIXEL_ID && typeof window !== 'undefined') {
     window.addEventListener(ev, alInteractuar, { once: true, passive: true }),
   )
 
-  /* Sin interaccion ninguna, se trae igualmente cuando la pagina ya ha
-     terminado de cargar y el navegador tiene un hueco. El margen es amplio a
-     proposito: quien se queda en la pagina casi siempre se desplaza o toca
-     algo antes, y asi el script no compite con el primer pintado. */
-  const porSuCuenta = () => {
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(traerPixel, { timeout: 5000 })
-    } else {
-      setTimeout(traerPixel, 5000)
-    }
-  }
+  /* Sin interaccion ninguna, se trae pasado un margen desde que la pagina
+     termina de cargar. Tiene que ser un temporizador y no requestIdleCallback:
+     ese dispara en cuanto hay un hueco libre —que llega enseguida— y su
+     timeout es un maximo, no un minimo, asi que el script acababa compitiendo
+     igual con el primer pintado. */
+  const porSuCuenta = () => setTimeout(traerPixel, 4000)
   if (document.readyState === 'complete') porSuCuenta()
   else window.addEventListener('load', porSuCuenta, { once: true })
 }

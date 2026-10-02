@@ -75,19 +75,33 @@
 
 .urgencyRight b { color: var(--cream); }
 
+/* El pulso se hacia animando box-shadow, que obliga a repintar en cada
+   fotograma durante toda la visita. Con un anillo propio animado por
+   transform y opacity la animacion se compone en la GPU y el hilo
+   principal no se entera. */
 .liveDot {
+  position: relative;
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--pulse);
-  box-shadow: 0 0 0 0 rgba(255, 68, 56, 0.6);
+  flex-shrink: 0;
+}
+
+.liveDot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--pulse);
   animation: pulseDot 2.2s ease-out infinite;
+  will-change: transform, opacity;
 }
 
 @keyframes pulseDot {
-  0% { box-shadow: 0 0 0 0 rgba(255, 68, 56, 0.55); }
-  70% { box-shadow: 0 0 0 8px rgba(255, 68, 56, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(255, 68, 56, 0); }
+  0% { transform: scale(1); opacity: 0.55; }
+  70% { transform: scale(3.6); opacity: 0; }
+  100% { transform: scale(3.6); opacity: 0; }
 }
 
 /* Cronómetro */
