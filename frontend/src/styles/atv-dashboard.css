@@ -1,18 +1,18 @@
 /* Design system del dashboard (tema corredora navy/blue) */
 
 .atv-metrics-page {
-  --atv-accent: #f0c542;
-  --atv-accent-dark: #c9a233;
-  --atv-accent-gold: #f0c542;
-  --atv-text: #f5f2ec;
-  --atv-muted: rgba(245, 242, 236, 0.45);
-  --atv-subtle: #a8a49b;
-  --atv-border-soft: rgba(255, 255, 255, 0.08);
-  --atv-glass-bg: rgba(255, 255, 255, 0.02);
-  --atv-glass-border: rgba(255, 255, 255, 0.06);
-  --atv-glass-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  /* Tema claro: el panel comparte la paleta de la landing. Los valores
+     salen de los tokens globales para que no haya dos identidades. */
+  --atv-accent: var(--sun);
+  --atv-accent-dark: var(--sun-2);
+  --atv-accent-gold: var(--sun);
+  --atv-text: var(--cream);
+  --atv-muted: var(--cream-3);
+  --atv-subtle: var(--cream-2);
+  --atv-border-soft: var(--hair);
+  --atv-glass-bg: #ffffff;
+  --atv-glass-border: var(--hair-2);
+  --atv-glass-shadow: var(--sombra);
   --atv-font-sans:
     'Poppins',
     system-ui,
@@ -30,12 +30,12 @@
   overflow-x: hidden;
   color: var(--atv-text);
   font-family: var(--atv-font-sans);
-  background-color: #0b0c0f;
+  background-color: var(--ink);
   background-image: radial-gradient(
     ellipse 95% 75% at 50% 38%,
-    rgba(23, 26, 32, 0.95) 0%,
-    rgba(11, 12, 15, 0.98) 48%,
-    #08090b 100%
+    #ffffff 0%,
+    var(--ink) 55%,
+    #e4eef9 100%
   );
 }
 
@@ -48,7 +48,7 @@
   background: radial-gradient(
     ellipse 115% 95% at 50% 45%,
     transparent 35%,
-    rgba(0, 0, 0, 0.5) 100%
+    rgba(40, 80, 130, 0.06) 100%
   );
 }
 
@@ -61,7 +61,7 @@
   z-index: 0;
   background: radial-gradient(
     ellipse 70% 60% at 50% 50%,
-    rgba(240, 197, 66, 0.18) 0%,
+    rgba(47, 111, 179, 0.14) 0%,
     transparent 72%
   );
   filter: blur(52px);
@@ -94,7 +94,7 @@
   z-index: 1;
   width: 1.35rem;
   height: 1.35rem;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--hair-2);
   border-top-color: var(--atv-accent);
   border-radius: 50%;
   animation: atv-spin 0.65s linear infinite;
@@ -129,12 +129,10 @@
   border-radius: 10px;
   font-family: inherit;
   font-weight: 600;
-  color: #0b0c0f;
+  color: #fff;
   cursor: pointer;
-  background: linear-gradient(135deg, #f0c542 0%, #e0b02f 100%);
-  box-shadow:
-    0 4px 20px rgba(240, 197, 66, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  background: var(--sun);
+  box-shadow: 0 10px 24px rgba(47, 111, 179, 0.32);
   transition:
     box-shadow 0.15s ease,
     transform 0.1s ease,
@@ -142,9 +140,8 @@
 }
 
 .btn-primary:hover:not(:disabled) {
-  box-shadow:
-    0 6px 28px rgba(240, 197, 66, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: var(--sun-2);
+  box-shadow: 0 14px 30px rgba(47, 111, 179, 0.42);
   transform: translateY(-1px);
 }
 
@@ -153,7 +150,7 @@
 }
 
 .btn-primary:focus-visible {
-  outline: 2px solid rgba(240, 197, 66, 0.65);
+  outline: 2px solid var(--sun);
   outline-offset: 3px;
 }
 
@@ -166,9 +163,9 @@
 .btn-secondary {
   font-family: inherit;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--cream-2);
+  background: var(--ink-2);
+  border: 1px solid var(--hair-2);
   border-radius: 10px;
   cursor: pointer;
   transition:
@@ -178,13 +175,13 @@
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.18);
-  color: #fff;
+  background: var(--ink-3);
+  border-color: var(--cream-3);
+  color: var(--cream);
 }
 
 .btn-secondary:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.25);
+  outline: 2px solid var(--sun);
   outline-offset: 3px;
 }
 

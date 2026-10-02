@@ -51,7 +51,7 @@ export default function ResourcePage() {
 
       <div className={`${styles.inner} ${result?.pdf?.estado === 'ok' ? styles.innerWide : ''}`}>
         <a className={styles.brand} href={BRAND.instagramUrl} target="_blank" rel="noreferrer">
-          <img className={styles.brandMark} src={BRAND.avatar} alt={BRAND.coach} />
+          <span className={styles.brandMark} aria-label={BRAND.coach} role="img">{BRAND.monogram}</span>
           <span className={styles.brandText}>
             <b>{BRAND.coach}</b>
             <i>{BRAND.credential}</i>

@@ -44,14 +44,19 @@
 }
 
 .brandMark {
-  display: block;
   width: 64px;
   height: 64px;
   margin: 0 auto 18px;
+  font-size: 25px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
   border-radius: 50%;
-  object-fit: cover;
-  background: var(--ink-3);
-  border: 2px solid var(--sun);
+  background: var(--sun);
+  color: #fff;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
 .eyebrow {
@@ -106,7 +111,7 @@
   border: none;
   border-radius: var(--r);
   background: var(--sun);
-  color: var(--ink);
+  color: #fff;
   font-family: var(--font-display);
   font-size: 17px;
   letter-spacing: 0.015em;

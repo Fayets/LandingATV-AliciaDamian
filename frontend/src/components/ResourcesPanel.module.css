@@ -1,7 +1,7 @@
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.72);
+  background: rgba(18, 23, 34, 0.42);
   display: grid;
   place-items: center;
   padding: 1rem;
@@ -165,7 +165,7 @@
 }
 
 .success {
-  color: #7dffb2;
+  color: #0f8a4a;
 }
 
 @media (max-width: 900px) {

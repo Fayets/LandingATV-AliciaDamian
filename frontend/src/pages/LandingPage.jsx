@@ -395,7 +395,7 @@ export default function LandingPage({ onComplete }) {
       <div className={styles.urgencyBar}>
         <div className={styles.urgencyInner}>
           <a className={styles.brand} href={BRAND.instagramUrl} target="_blank" rel="noreferrer">
-            <img className={styles.brandMark} src={BRAND.avatar} alt={BRAND.coach} />
+            <span className={styles.brandMark} aria-label={BRAND.coach} role="img">{BRAND.monogram}</span>
             <span className={styles.brandText}>
               <b>{BRAND.coach}</b>
               <i>{BRAND.credential}</i>
@@ -436,20 +436,36 @@ export default function LandingPage({ onComplete }) {
           </div>
 
           <div className={styles.previews}>
+            <div className={styles.visual}>
+              <span className={styles.disc} aria-hidden="true" />
+              <img
+                className={styles.runner}
+                src="/corredora-recorte.webp"
+                alt=""
+                aria-hidden="true"
+                width="457"
+                height="741"
+                fetchPriority="high"
+              />
+              <span className={styles.gratis} aria-hidden="true">
+                <b>Gratis</b>
+                <i>tu guía PDF</i>
+              </span>
+              <ul className={styles.previewList}>
+                {DELIVERABLE.pages.map((page, i) => (
+                  <li key={page.title} className={styles[`fan${i}`]}>
+                    <img
+                      src={page.image}
+                      alt={page.title}
+                      loading={i === 1 ? 'eager' : 'lazy'}
+                      width="880"
+                      height="1245"
+                    />
+                  </li>
+                ))}
+              </ul>
+            </div>
             <span className={styles.previewsLabel}>{DELIVERABLE.label}</span>
-            <ul className={styles.previewList}>
-              {DELIVERABLE.pages.map((page, i) => (
-                <li key={page.title} className={styles[`fan${i}`]}>
-                  <img
-                    src={page.image}
-                    alt={page.title}
-                    loading={i === 1 ? 'eager' : 'lazy'}
-                    width="880"
-                    height="1245"
-                  />
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Formulario */}
@@ -473,35 +489,47 @@ export default function LandingPage({ onComplete }) {
             )}
 
             <div className={styles.formBody}>
-              <input
-                className={styles.input}
-                type="text"
-                name="name"
-                placeholder="Tu nombre completo"
-                value={form.name}
-                onChange={handleChange}
-              />
-              <input
-                className={styles.input}
-                type="email"
-                name="email"
-                placeholder="Tu email"
-                value={form.email}
-                onChange={handleChange}
-              />
-              <PhoneInput
-                value={form.phone}
-                onChange={(phone) => setForm((prev) => ({ ...prev, phone }))}
-                placeholder="Tu WhatsApp"
-              />
-              <input
-                className={styles.input}
-                type="text"
-                name="ig"
-                placeholder="Tu Instagram (@usuaria)"
-                value={form.ig}
-                onChange={handleChange}
-              />
+              <label className={styles.field}>
+                Nombre completo
+                <input
+                  className={styles.input}
+                  type="text"
+                  name="name"
+                  placeholder="Tu nombre completo"
+                  value={form.name}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className={styles.field}>
+                Email
+                <input
+                  className={styles.input}
+                  type="email"
+                  name="email"
+                  placeholder="tu@email.com"
+                  value={form.email}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className={styles.field}>
+                WhatsApp
+                <PhoneInput
+                  value={form.phone}
+                  onChange={(phone) => setForm((prev) => ({ ...prev, phone }))}
+                  placeholder="600 000 000"
+                />
+              </label>
+              <label className={styles.field}>
+                Instagram
+                <input
+                  className={styles.input}
+                  type="text"
+                  name="ig"
+                  placeholder="@usuaria"
+                  value={form.ig}
+                  onChange={handleChange}
+                />
+              </label>
 
               <div className={styles.checkboxWrap}>
                 <label className={styles.checkboxLabel}>

@@ -83,7 +83,7 @@
   background: var(--ink-3);
   border: 1px solid var(--hair-2);
   border-radius: var(--r);
-  box-shadow: 0 20px 50px -18px rgba(0, 0, 0, 0.9);
+  box-shadow: var(--sombra-lg);
   z-index: 1000;
 }
 

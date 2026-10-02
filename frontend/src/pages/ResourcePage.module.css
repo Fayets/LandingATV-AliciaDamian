@@ -31,10 +31,16 @@
 .brandMark {
   width: 42px;
   height: 42px;
+  font-size: 17px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
   border-radius: 50%;
-  object-fit: cover;
-  background: var(--ink-3);
-  border: 2px solid var(--sun);
+  background: var(--sun);
+  color: #fff;
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
 .brandText { display: flex; flex-direction: column; line-height: 1.25; }
@@ -47,7 +53,7 @@
   border: 1px solid var(--hair-2);
   border-radius: var(--r-lg);
   background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
-  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.9);
+  box-shadow: var(--sombra-lg);
 }
 
 .badge {
@@ -116,7 +122,7 @@
   border: none;
   border-radius: var(--r);
   background: var(--sun);
-  color: var(--ink);
+  color: #fff;
   font-family: var(--font-display);
   font-size: 17px;
   text-transform: uppercase;
@@ -143,7 +149,7 @@
   border: 1px solid var(--hair-2);
   border-radius: var(--r-lg);
   background: linear-gradient(180deg, var(--ink-3), var(--ink-2));
-  box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.9);
+  box-shadow: var(--sombra-lg);
   overflow: hidden;
 }
 

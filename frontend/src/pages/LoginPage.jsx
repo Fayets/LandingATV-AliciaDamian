@@ -54,7 +54,7 @@ export default function LoginPage() {
       <TrackBackground />
 
       <div className={styles.box}>
-        <img className={styles.brandMark} src={BRAND.avatar} alt={BRAND.coach} />
+        <span className={styles.brandMark} aria-label={BRAND.coach} role="img">{BRAND.monogram}</span>
         <h1 className={styles.title}>{BRAND.coach}</h1>
         <p className={styles.sub}>{BRAND.credential}</p>
 

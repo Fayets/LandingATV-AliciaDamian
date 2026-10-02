@@ -83,7 +83,7 @@
 
 .error {
   font-size: 13px;
-  color: #ff6b6b;
+  color: var(--error);
   padding: 4px 0;
 }
 

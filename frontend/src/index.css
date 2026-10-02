@@ -1,25 +1,31 @@
 :root {
-  /* ── Sistema "DORSAL" ───────────────────────────────────────────────
-     Asfalto + dorsal de carrera + cronómetro, sobre la identidad real
-     de Alicia Damián (crema · negro · amarillo mostaza).
-     Cambiá estos valores y cambia toda la identidad del funnel.        */
-  --ink: #0b0c0f;          /* asfalto */
-  --ink-2: #101217;        /* superficie */
-  --ink-3: #171a20;        /* superficie elevada */
-  --ink-4: #1f242c;        /* superficie hover */
-  --cream: #f5f2ec;        /* texto sobre oscuro / fondo de bandas claras */
-  --cream-2: #a8a49b;      /* texto secundario */
-  --cream-3: #6b6862;      /* texto terciario */
-  --sun: #f0c542;          /* acento de marca — CTA, highlights */
-  --sun-2: #ffda6b;
-  --sun-dim: rgba(240, 197, 66, 0.12);
-  --pulse: #ff4438;        /* urgencia — solo en dosis mínimas */
-  --pulse-dim: rgba(255, 68, 56, 0.12);
+  /* ── Sistema "DORSAL CLARO" ─────────────────────────────────────────
+     Hielo + azul de marca + negro de dorsal. Los nombres de los tokens
+     se mantienen por compatibilidad; lo que cambia es su PAPEL:
+     --ink es el fondo de pagina (ahora claro) y --cream el texto.
+     Cambia estos valores y cambia toda la identidad del funnel.        */
+  --ink: #eef5fc;          /* fondo de pagina — hielo azulado */
+  --ink-2: #ffffff;        /* superficie — tarjetas */
+  --ink-3: #f8fbfd;        /* superficie elevada — campos, chips */
+  --ink-4: #e4eef9;        /* superficie hover */
+  --cream: #1c2026;        /* texto principal */
+  --cream-2: #47515a;      /* texto secundario */
+  --cream-3: #6f7f8c;      /* texto terciario */
+  --sun: #2f6fb3;          /* acento de marca — CTA, highlights */
+  --sun-2: #23578e;        /* acento al pasar por encima */
+  --sun-dim: rgba(47, 111, 179, 0.10);
+  --pulse: #e5484d;        /* urgencia — solo en dosis minimas */
+  --pulse-dim: rgba(229, 72, 77, 0.10);
+  --placeholder: #8a939a;   /* gris de los campos vacios */
   --wa: #25d366;
-  --error: #ff5a5a;
+  --error: #d92d20;
 
-  --hair: rgba(245, 242, 236, 0.08);
-  --hair-2: rgba(245, 242, 236, 0.16);
+  --hair: #d3e0eb;
+  --hair-2: #d9e5f0;
+
+  /* Sobre fondo claro la jerarquia la da la sombra, no el contraste. */
+  --sombra: 0 14px 30px rgba(40, 80, 130, 0.16);
+  --sombra-lg: 0 24px 60px rgba(60, 100, 150, 0.14);
 
   --font-display: 'Anton', 'Poppins', system-ui, sans-serif;
   --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
@@ -28,7 +34,7 @@
   --r-sm: 8px;
   --r: 14px;
   --r-lg: 22px;
-  --shell: 1140px;
+  --shell: 1200px;
   --gut: clamp(18px, 5vw, 40px);
 
   /* ── Aliases legacy (dashboard / admin / login) ──────────────────── */
@@ -40,8 +46,8 @@
   --text: var(--cream);
   --text2: var(--cream-2);
   --text3: var(--cream-3);
-  --blue: #3a7bd5;
-  --blue2: #5b9aea;
+  --blue: var(--sun);
+  --blue2: var(--sun-2);
   --gold: var(--sun);
   --gold2: var(--sun-2);
   --gold-soft: var(--sun-dim);
@@ -64,6 +70,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
+  color-scheme: light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -83,7 +90,7 @@ input, textarea, select { font-family: var(--font-body); }
 a { color: var(--sun); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-::selection { background: var(--sun); color: var(--ink); }
+::selection { background: var(--sun); color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

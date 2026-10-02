@@ -1,18 +1,16 @@
 import styles from './TrackBackground.module.css'
 
 /**
- * Fondo del hero: fotografía de una corredora a contraluz, oscurecida
- * para que el texto siga siendo legible encima.
+ * Fondo ambiental de las vistas públicas: hielo azulado con dos focos de
+ * luz muy suaves. Antes era una fotografía oscurecida; con el tema claro
+ * la imagen competía con el contenido, así que el fondo pasa a ser aire.
  *
- * La imagen vive en /public — cambiala ahí y cambia en toda la landing.
+ * Lo usan la landing, /recurso, el login y el admin.
  */
 export default function TrackBackground() {
   return (
     <div className={styles.bg} aria-hidden="true">
-      <div className={styles.photo} />
-      <div className={styles.scrim} />
-      <div className={styles.grain} />
-      <div className={styles.vignette} />
+      <div className={styles.wash} />
     </div>
   )
 }

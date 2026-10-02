@@ -17,7 +17,10 @@ export const BRAND = {
   promise: 'Mujeres +35 corriendo sus primeros 5, 10 y 21K disfrutando y sin sufrir',
   /** Corredoras acompañadas. Se usa en el hero y en las métricas: cambiala aquí y cambia en los dos sitios. */
   alumnas: '+347',
-  /** Foto de perfil de Alicia (recorte cuadrado, /public). */
+  /** Iniciales de la cabecera: disco azul en vez de foto. */
+  monogram: 'AD',
+  /** Foto de perfil de Alicia (recorte cuadrado, /public). Sin uso en la
+      cabecera desde el tema claro; se mantiene por si vuelve a hacer falta. */
   avatar: '/alicia-avatar.jpg',
   /** Foto completa, por si se usa en algún bloque grande. */
   coachPhoto: '/alicia.jpg',

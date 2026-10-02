@@ -18,7 +18,6 @@
   width: auto;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 0 10px rgba(255, 45, 65, 0.45));
 }
 
 .center {
