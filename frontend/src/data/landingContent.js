@@ -116,9 +116,9 @@ export const PROOF_STATS = [
 export const DELIVERABLE = {
   label: 'Completa el formulario y llévate esto',
   pages: [
-    { image: '/preview-diagnostico.jpg', title: 'Tu diagnóstico' },
-    { image: '/preview-plan.jpg', title: 'Tu semana, día a día' },
-    { image: '/preview-seguimiento.jpg', title: 'Qué vigilar' },
+    { image: '/preview-diagnostico.webp', title: 'Tu diagnóstico' },
+    { image: '/preview-plan.webp', title: 'Tu semana, día a día' },
+    { image: '/preview-seguimiento.webp', title: 'Qué vigilar' },
     // Los títulos ya solo se usan como texto alternativo de cada imagen.
   ],
 }
